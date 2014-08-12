@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Color Scroll Demo Driver</title>
+  <script src="colorScroll.js"></script>
+</head>
+<body>
+  <script>
+    /*************************
+     *  BUILD COLORFUL DOM   *
+     *************************/
+    document.body.style.width = '4000px';
+    document.body.style.margin = 0;
+    var table  = document.createElement('table');
+    table.style.width = '100%';
+    table.style.border = '1px solid black';
+
+    var numRows = 50;
+    var numColumns = 30;
+
+    for (var i = 0; i < numRows; i++) {
+      var tr = table.insertRow();
+      tr.style.height = '100px';
+      for (var j = 0; j < numColumns; j++) {
+        var r = Math.floor(255 * Math.random());
+        var g = Math.floor(255 * Math.random());
+        var b = Math.floor(255 * Math.random());
+        var a = Math.random();
+        var td = tr.insertCell();
+        td.style.background = 
+          'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+      }
+    }
+    document.body.appendChild(table);
+    /*************************
+     *  Start Color Scroll   *
+     *************************/
+    ColorScroll.turnOn();
+  </script>
+</body>
+</html>
